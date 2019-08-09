@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,12 +45,15 @@ public class JdbcUserDao implements UserDao {
 			ps.close();
 			return retVal;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			if (conn != null) {
 				try {
 				conn.close();
-				} catch (SQLException e) {}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
@@ -77,13 +79,16 @@ public class JdbcUserDao implements UserDao {
 			ps.close();
 			
 		} catch (SQLException e) {
+			e.printStackTrace();
 			throw new RuntimeException(e);
 			
 		} finally {
 			if (conn != null) {
 				try {
 					conn.close();
-				} catch (SQLException e) {}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
@@ -116,12 +121,15 @@ public class JdbcUserDao implements UserDao {
 			ps.close();
 			return u;
 		} catch (SQLException e) {
+			e.printStackTrace();
 			throw new RuntimeException(e);
 		} finally {
 			if (conn != null) {
 				try {
 				conn.close();
-				} catch (SQLException e) {}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}
